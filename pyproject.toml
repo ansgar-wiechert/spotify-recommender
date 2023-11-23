@@ -1,0 +1,53 @@
+[project]
+name = "spotify-recommender"
+version = "0.0.1"
+dependencies = [
+    "pandas==2.0.3",
+    "dateparser==1.1.8",
+    "click==8.1.6",
+    "networkx==3.1",
+    "GitPython==3.1.32",
+    "tqdm==4.66.1",
+    "tiktoken==0.4.0",
+    "numpy"
+]
+
+[project.scripts]
+
+
+[project.optional-dependencies]
+test = [
+    "pytest==7.4.0",
+    "coverage[toml]==6.5.0",
+    "pytest-cov==4.0.0",
+]
+dev = [
+    "jupyter==1.0.0",
+]
+
+[tool.isort]
+profile = "black"
+
+[tool.black]
+line-length = 120
+
+[tool.coverage.run]
+branch = true
+source = [
+    "src/songify"
+]
+
+[tool.coverage.report]
+
+exclude_lines = [
+    "if self.debug:",
+    "pragma: no cover",
+    "raise NotImplementedError",
+    "if __name__ == .__main__.:"
+]
+
+ignore_errors = true
+omit = [
+    "tests/*",
+    "setup.py",
+]
